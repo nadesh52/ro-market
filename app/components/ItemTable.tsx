@@ -10,25 +10,29 @@ import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import SwitchInput from "./SwitchInput";
+import TextInput from "./TextInput";
+import SortFilter from "./SortFilter";
 
 const ItemTable = () => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
-  const [isScroll, setIsScroll] = useState<boolean>(false)
+  const [isScroll, setIsScroll] = useState<boolean>(false);
 
-  useEffect(()=>{
-    window.addEventListener('scroll', ()=>{
-      if(window.scrollY >= 300){
-        setIsScroll(true)
-      }else{
-        setIsScroll(false)
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= 300) {
+        setIsScroll(true);
+      } else {
+        setIsScroll(false);
       }
-    })
-  },[])
+    });
+  }, []);
 
   return (
     <div className="mt-14">
-      
-      <div className={`${isScroll ? 'fixed h-full mt-[-300px]' : 'absolute h-[720px]'} hidden lg:block w-[240px] border-r border-r-zinc-800`}>
+      <div
+        className={`${isScroll ? "fixed mt-[-300px] h-full" : "absolute h-[720px]"} hidden w-[240px] border-r border-r-zinc-800 lg:block`}
+      >
         <div className="mb-4 flex justify-center">
           <div className="border-b-2 border-b-yellow-400 px-6 py-3 font-medium">
             NFTs
@@ -59,18 +63,8 @@ const ItemTable = () => {
                 Favorites
               </span>
             )}
-            <div className="order-3 flex w-full items-center">
-              <div className="px-6 py-2">
-                <label className="relative">
-                  <input
-                    type="checkbox"
-                    className="peer sr-only"
-                    onChange={() => setIsFavorite(!isFavorite)}
-                  />
-                  <div className="h-[25px] w-[50px] rounded-full bg-slate-400 peer-checked:bg-yellow-400"></div>
-                  <span className="absolute left-1 top-1/2 size-5 -translate-y-1/2 rounded-full bg-white transition-all duration-500 ease-in-out peer-checked:translate-x-7 peer-checked:bg-black"></span>
-                </label>
-              </div>
+            <div className="order-3 flex w-full items-center px-6 py-2">
+              <SwitchInput onChange={() => setIsFavorite(!isFavorite)} />
             </div>
           </div>
 
@@ -243,14 +237,10 @@ const ItemTable = () => {
 
       <div className="lg:ml-[240px]">
         <div className="mt-[-30px] lg:mt-0">
-          <div className="p-8 mb-[140px]">
+          <div className="mb-[140px] p-8">
             <div className="flex gap-4">
               <div className="w-[320px]">
-                <input
-                  type="text"
-                  placeholder="Search by name"
-                  className="h-[48px] w-full rounded-lg border-2 border-zinc-700 bg-zinc-900 p-2 text-lg font-medium"
-                />
+                <TextInput />
               </div>
 
               <div className="relative">
@@ -262,17 +252,12 @@ const ItemTable = () => {
                 </button>
               </div>
 
-              <div className="relative">
-                <button className="flex h-[48px] min-w-[180px] items-center justify-between gap-3 rounded-lg border-2 border-zinc-700 bg-zinc-900 py-2 pl-3 pr-2 text-left">
-                  <div>Newest</div>
-                  <div className="rounded-full border-2 border-zinc-700 p-1">
-                    <ChevronDownIcon className="size-6" />
-                  </div>
-                </button>
+              <div className="relative min-w-[180px]">
+                <SortFilter />
               </div>
             </div>
             <div className="pt-8">
-              <div className="flex justify-center lg:justify-start flex-wrap gap-6">
+              <div className="flex flex-wrap justify-center gap-6 lg:justify-start">
                 <Card />
                 <Card />
                 <Card />
@@ -294,8 +279,9 @@ const ItemTable = () => {
           {/*  */}
           <div className="fixed bottom-[90px] h-[50px] w-full border-b border-zinc-800 bg-zinc-900">
             <div className="flex h-full w-full items-center">
-              <div className="flex w-full lg:w-[calc(100%-240px)] items-center justify-center gap-8">
+              <div className="flex w-full items-center justify-center gap-8 lg:w-[calc(100%-240px)]">
                 <div className="hidden lg:block">1 - 50 of 6356</div>
+
                 <ul className="flex gap-4">
                   <li>
                     <a href="">
@@ -314,7 +300,7 @@ const ItemTable = () => {
                   </li>
                   <li>
                     <a href="">
-                      <div className="flex items-center gap-2 rounded bg-zinc-900 border border-zinc-800 px-4 py-1 text-lg text-zinc-300 hover:bg-zinc-700">
+                      <div className="flex items-center gap-2 rounded border border-zinc-800 bg-zinc-900 px-4 py-1 text-lg text-zinc-300 hover:bg-zinc-700">
                         <p>2</p>
                       </div>
                     </a>
@@ -328,14 +314,14 @@ const ItemTable = () => {
                   </li>
                   <li>
                     <a href="">
-                      <div className="flex items-center gap-2 rounded bg-zinc-900 border border-zinc-800 px-4 py-1 text-lg text-zinc-300 hover:bg-zinc-700">
+                      <div className="flex items-center gap-2 rounded border border-zinc-800 bg-zinc-900 px-4 py-1 text-lg text-zinc-300 hover:bg-zinc-700">
                         <p>119</p>
                       </div>
                     </a>
                   </li>
                   <li>
                     <a href="">
-                      <div className="flex items-center gap-2 rounded bg-zinc-900 border border-zinc-800 px-4 py-1 text-lg text-zinc-300 hover:bg-zinc-700">
+                      <div className="flex items-center gap-2 rounded border border-zinc-800 bg-zinc-900 px-4 py-1 text-lg text-zinc-300 hover:bg-zinc-700">
                         <p>120</p>
                       </div>
                     </a>
@@ -350,11 +336,11 @@ const ItemTable = () => {
                   </li>
                 </ul>
 
-                <div className="hidden lg:flex gap-4 items-center ">
+                <div className="hidden items-center gap-4 lg:flex">
                   <div>Result per page</div>
                   <div>
                     <button>
-                      <div className="flex gap-1 py-1 px-2 bg-zinc-800 border border-zinc-700 items-center rounded">
+                      <div className="flex items-center gap-1 rounded border border-zinc-700 bg-zinc-800 px-2 py-1">
                         <div>50</div>
                         <div>
                           <ChevronDownIcon className="size-4" />

@@ -8,13 +8,15 @@ import {
   Squares2X2Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { useMenu } from "@/hooks/useMenu";
+import MenuModal from "./MenuModal";
 
 const HeaderMenu = () => {
   const [isScroll, setIsScroll] = useState<any>({});
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
 
-  const menuRef = useRef(null)
-  const btnRef = useRef(null)
+  const menuRef = useRef(null);
+  const btnRef = useRef(null);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -38,43 +40,22 @@ const HeaderMenu = () => {
         }
       });
 
-      window.addEventListener('click',(e)=>{
-        if(e.target === menuRef.current){
-          setIsOpenMenu(false)
+      window.addEventListener("click", (e) => {
+        if (e.target === menuRef.current) {
+          setIsOpenMenu(false);
         }
-      })
+      });
     }
   }, [isOpenMenu]);
 
   return (
     <div>
       {/* menu modal */}
-      <div
-          ref={menuRef}
-        className={`fixed right-0 top-0 z-[900] h-full w-full bg-zinc-800/80 backdrop-blur-sm transition-opacity ${
-          isOpenMenu ? "visible" : "invisible"
-        }`}
-      >
-        <div
-          className={`fixed right-0 top-0 z-[910] h-full w-72 transform bg-zinc-900 text-white transition-transform duration-300 ease-in-out ${
-            isOpenMenu ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="flex justify-between px-4">
-            <h2 className="p-4 text-lg font-bold">Menu</h2>
-            <button onClick={() => setIsOpenMenu(false)}>
-              <XMarkIcon className="size-6" />
-            </button>
-          </div>
-          <ul>
-            <li className="border-b border-gray-700 p-4">
-              <button onClick={() => console.log("gg")}>item 1</button>
-            </li>
-            <li className="border-b border-gray-700 p-4">Item 2</li>
-            <li className="border-b border-gray-700 p-4">Item 3</li>
-          </ul>
-        </div>
-      </div>
+      <MenuModal
+        isOpenMenu={isOpenMenu}
+        setIsOpenMenu={() => setIsOpenMenu(false)}
+        menuRef={menuRef}
+      />
 
       <div
         className={`fixed z-50 h-[70px] w-full p-4 ${isScroll.top ? "bg-zinc-900" : "bg-transparent"}`}
@@ -143,7 +124,7 @@ const HeaderMenu = () => {
             </div>
             <div>
               <button
-              onClick={()=> setIsOpenMenu(true)}
+                onClick={() => setIsOpenMenu(true)}
                 className={`rounded-lg ${isScroll.top ? "border border-zinc-800 bg-zinc-900 hover:bg-zinc-800" : "bg-[rgba(63,63,70,0.5)] hover:bg-zinc-900"} px-4 py-2 backdrop-blur-sm`}
               >
                 <div className="flex items-center gap-2">
@@ -155,9 +136,7 @@ const HeaderMenu = () => {
           </div>
           {/*  */}
           <div className="flex items-center lg:hidden">
-            <button
-            ref={btnRef}
-             onClick={() => setIsOpenMenu(true)}>
+            <button ref={btnRef} onClick={() => setIsOpenMenu(true)}>
               <Bars3Icon className="size-8" />
             </button>
           </div>
@@ -219,7 +198,7 @@ const HeaderMenu = () => {
         <div className="absolute h-[340px] w-full bg-gradient-to-b from-zinc-900/50 to-zinc-900"></div>
       </div>
 
-      <div className="hidden justify-between items-center px-8 lg:flex">
+      <div className="hidden items-center justify-between px-8 lg:flex">
         <div>
           <p className="text-lg font-medium">
             Bring the memories to the new era! An exciting new addition to the
@@ -232,91 +211,86 @@ const HeaderMenu = () => {
               height={22}
               width={22}
               alt="maxi-icon"
-            />{" "}
-            Maxi Network
+            />
+            <p>Maxi Network</p>
           </div>
         </div>
 
         <div className="flex gap-2">
-          <div className="size-10 rounded-lg border border-zinc-500 p-1.5">
+          <div>
             <a href="/">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1}
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
-                  />
-                </svg>
-              </span>
-            </a>
-          </div>
-          <div className="size-10 rounded-lg border border-zinc-500 p-1.5">
-            <a href="/">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1}
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"
-                  />
-                </svg>
-              </span>
-            </a>
-          </div>
-          <div className="size-10 rounded-lg border border-zinc-500 p-1.5">
-            <a href="/">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1}
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"
-                  />
-                </svg>
-              </span>
-            </a>
-          </div>
-          <div className="flex h-10 cursor-pointer items-center gap-2 rounded-lg border border-zinc-500 px-2.5 py-1.5">
-            <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1}
                 stroke="currentColor"
-                className="size-6"
+                className="size-10 rounded-lg border border-zinc-500 p-2"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
                 />
               </svg>
-            </span>
-            <span className="font-medium">Share</span>
+            </a>
           </div>
+
+          <div>
+            <a href="/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1}
+                stroke="currentColor"
+                className="size-10 rounded-lg border border-zinc-500 p-2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div>
+            <a href="/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1}
+                stroke="currentColor"
+                className="size-10 rounded-lg border border-zinc-500 p-2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <button className="flex h-10 items-center gap-2 rounded-lg border border-zinc-500 px-3 py-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
+              />
+            </svg>
+            <p className="font-medium">Share</p>
+          </button>
         </div>
       </div>
     </div>

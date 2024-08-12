@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import { GlobeAmericasIcon } from "@heroicons/react/24/outline";
 import ItemTable from "./components/ItemTable";
 import HeaderMenu from "./components/HeaderMenu";
+import SwitchInput from "./components/SwitchInput";
 
 const Home = () => {
   return (
@@ -10,18 +13,12 @@ const Home = () => {
       <ItemTable />
 
       <div className="fixed bottom-0 w-full">
-        <div className="lg:ml-[240px] flex h-[90px] items-center justify-center bg-zinc-900 px-10">
+        <div className="flex h-[90px] items-center justify-center bg-zinc-900 px-10 lg:ml-[240px]">
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="text-lg font-medium">Sweep</div>
-              <div className="flex items-center">
-                <div className="">
-                  <label className="relative cursor-pointer">
-                    <input type="checkbox" className="peer sr-only" />
-                    <div className="h-[25px] w-[50px] rounded-full bg-slate-400 peer-checked:bg-yellow-400"></div>
-                    <span className="absolute left-1 top-1/2 size-5 -translate-y-1/2 rounded-full bg-white transition-all duration-200 ease-in-out peer-checked:translate-x-7 peer-checked:bg-black"></span>
-                  </label>
-                </div>
+              <div>
+                <SwitchInput />
               </div>
               <div>
                 Copyright © 2023 Maxion Tech LLC. All rights reserved |{" "}
