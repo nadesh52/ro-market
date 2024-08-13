@@ -11,12 +11,14 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import SwitchInput from "./SwitchInput";
-import TextInput from "./TextInput";
+import SearchInput from "./Searchnput";
 import SortFilter from "./SortFilter";
+import ServerSelection from "./ServerSelection";
 
 const ItemTable = () => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
   const [isScroll, setIsScroll] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -31,7 +33,7 @@ const ItemTable = () => {
   return (
     <div className="mt-14">
       <div
-        className={`${isScroll ? "fixed mt-[-300px] h-full" : "absolute h-[720px]"} hidden w-[240px] border-r border-r-zinc-800 lg:block`}
+        className={`${isScroll ? "fixed mt-[-300px] h-full pt-5" : "absolute h-[720px]"} hidden w-[240px] border-r border-r-zinc-800 lg:block`}
       >
         <div className="mb-4 flex justify-center">
           <div className="border-b-2 border-b-yellow-400 px-6 py-3 font-medium">
@@ -77,7 +79,7 @@ const ItemTable = () => {
 
           <div className="mr-8 flex cursor-pointer">
             <div className="line"></div>
-            <div className="active flex w-full items-center gap-3 p-3 hover:opacity-100">
+            <div className="active flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
               <div>
                 <Image
                   src="/images/icons/category/etc-icon.svg"
@@ -92,7 +94,7 @@ const ItemTable = () => {
           {/*  */}
           <div className="mr-8 flex cursor-pointer items-center">
             <div className="line"></div>
-            <div className="inactive flex w-full items-center gap-3 p-3 hover:opacity-100">
+            <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
               <div>
                 <Image
                   src="/images/icons/category/headgear-icon.svg"
@@ -107,7 +109,7 @@ const ItemTable = () => {
           {/*  */}
           <div className="mr-8 flex cursor-pointer items-center">
             <div className="line"></div>
-            <div className="inactive flex w-full items-center gap-3 p-3 hover:opacity-100">
+            <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
               <div>
                 <Image
                   src="/images/icons/category/weapon-icon.svg"
@@ -122,7 +124,7 @@ const ItemTable = () => {
           {/*  */}
           <div className="mr-8 flex cursor-pointer items-center">
             <div className="line"></div>
-            <div className="inactive flex w-full items-center gap-3 p-3 hover:opacity-100">
+            <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
               <div>
                 <Image
                   src="/images/icons/category/armor-icon.svg"
@@ -137,7 +139,7 @@ const ItemTable = () => {
           {/*  */}
           <div className="mr-8 flex cursor-pointer items-center">
             <div className="line"></div>
-            <div className="inactive flex w-full items-center gap-3 p-3 hover:opacity-100">
+            <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
               <div>
                 <Image
                   src="/images/icons/category/card-icon.svg"
@@ -152,7 +154,7 @@ const ItemTable = () => {
           {/*  */}
           <div className="mr-8 flex cursor-pointer items-center">
             <div className="line"></div>
-            <div className="inactive flex w-full items-center gap-3 p-3 hover:opacity-100">
+            <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
               <div>
                 <Image
                   src="/images/icons/category/shadowgear-icon.svg"
@@ -167,7 +169,7 @@ const ItemTable = () => {
           {/*  */}
           <div className="mr-8 flex cursor-pointer items-center">
             <div className="line-last"></div>
-            <div className="inactive flex w-full items-center gap-3 p-3 hover:opacity-100">
+            <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
               <div>
                 <Image
                   src="/images/icons/category/costume-icon.svg"
@@ -189,7 +191,7 @@ const ItemTable = () => {
           {/*  */}
           <div className="mr-8 flex cursor-pointer items-center">
             <div className="line"></div>
-            <div className="inactive flex w-full items-center gap-3 p-3 hover:opacity-100">
+            <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
               <div>
                 <Image
                   src="/images/icons/category/land-icon.svg"
@@ -204,7 +206,7 @@ const ItemTable = () => {
           {/*  */}
           <div className="mr-8 flex cursor-pointer items-center">
             <div className="line"></div>
-            <div className="inactive flex w-full items-center gap-3 p-3 hover:opacity-100">
+            <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
               <div>
                 <Image
                   src="/images/icons/category/usable-icon2.svg"
@@ -219,7 +221,7 @@ const ItemTable = () => {
           {/*  */}
           <div className="mr-8 flex cursor-pointer items-center">
             <div className="line-last"></div>
-            <div className="inactive flex w-full items-center gap-3 p-3 hover:opacity-100">
+            <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
               <div>
                 <Image
                   src="/images/icons/category/usable-icon.svg"
@@ -237,25 +239,13 @@ const ItemTable = () => {
 
       <div className="lg:ml-[240px]">
         <div className="mt-[-30px] lg:mt-0">
-          <div className="mb-[140px] p-8">
+          <div className="mb-[140px] px-8">
             <div className="flex gap-4">
-              <div className="w-[320px]">
-                <TextInput />
-              </div>
-
-              <div className="relative">
-                <button className="flex h-[48px] min-w-[100px] items-center justify-between gap-3 rounded-lg border-2 border-zinc-700 bg-zinc-900 py-2 pl-3 pr-2 text-left">
-                  <div>All</div>
-                  <div className="rounded-full border-2 border-zinc-700 p-1">
-                    <ChevronDownIcon className="size-6" />
-                  </div>
-                </button>
-              </div>
-
-              <div className="relative min-w-[180px]">
-                <SortFilter />
-              </div>
+              <SearchInput />
+              <ServerSelection />
+              <SortFilter />
             </div>
+
             <div className="pt-8">
               <div className="flex flex-wrap justify-center gap-6 lg:justify-start">
                 <Card />
@@ -338,15 +328,42 @@ const ItemTable = () => {
 
                 <div className="hidden items-center gap-4 lg:flex">
                   <div>Result per page</div>
-                  <div>
-                    <button>
-                      <div className="flex items-center gap-1 rounded border border-zinc-700 bg-zinc-800 px-2 py-1">
-                        <div>50</div>
-                        <div>
-                          <ChevronDownIcon className="size-4" />
-                        </div>
+                  <div className="relative">
+                    <button
+                      onClick={() => setIsMenuOpen(!isMenuOpen)}
+                      className="flex items-center gap-1 rounded border border-zinc-700 bg-zinc-800 px-2 py-1"
+                    >
+                      <p>50</p>
+                      <div>
+                        <ChevronDownIcon className="size-4" />
                       </div>
                     </button>
+                    <div
+                      className={`${isMenuOpen ? "block" : "hidden"} absolute top-0 mt-[-110px] w-full rounded bg-zinc-950 shadow-md shadow-zinc-500`}
+                    >
+                      <ul className="flex flex-col-reverse">
+                        <li>
+                          <button className="w-full py-1 hover:bg-zinc-800">
+                            50
+                          </button>
+                        </li>
+                        <li>
+                          <button className="w-full py-1 hover:bg-zinc-800">
+                            100
+                          </button>
+                        </li>
+                        <li>
+                          <button className="w-full py-1 hover:bg-zinc-800">
+                            150
+                          </button>
+                        </li>
+                        <li>
+                          <button className="w-full py-1 hover:bg-zinc-800">
+                            200
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>

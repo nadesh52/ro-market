@@ -12,7 +12,7 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className="bg-zinc-900 text-white">{children}</body>
+      <body className="bg-zinc-900 text-white max-w-screen-xl mx-auto">{children}</body>
     </html>
   );
 }
