@@ -36,7 +36,7 @@ input[type="number"] {
   }
 
   .active {
-    @apply rounded-xl opacity-100 bg-zinc-800 shadow-[inset_0px_1px_1px_rgba(0,0,0,1)] shadow-zinc-600;
+    @apply opacity-100 bg-zinc-800 shadow-[inset_0px_1px_1px_rgba(0,0,0,1)] shadow-zinc-600;
   }
 
   .inactive {
@@ -53,5 +53,9 @@ input[type="number"] {
 
   .empty {
     @apply bg-empty bg-no-repeat bg-contain
+  }
+
+  .selected {
+    @apply bg-zinc-800
   }
 }
