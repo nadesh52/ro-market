@@ -8,11 +8,11 @@ const TableFoot = () => {
       <div className="flex h-[90px] items-center justify-center bg-zinc-900 px-10 lg:ml-[240px]">
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="text-lg font-medium">Sweep</div>
+            <p className="text-lg font-medium">Sweep</p>
             <div>
               <SwitchInput />
             </div>
-            <div>
+            <div className="hidden lg:block">
               Copyright © 2023 Maxion Tech LLC. All rights reserved |{" "}
               <a href="" className="font-bold">
                 Agreement
@@ -20,7 +20,7 @@ const TableFoot = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <div className="flex">
               <button>
                 <div className="rounded-lg p-2 hover:bg-zinc-700">

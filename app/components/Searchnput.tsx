@@ -20,7 +20,7 @@ const SearchInput = ({ ...props }: React.HTMLProps<HTMLInputElement>) => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Search by name"
           required
-          className="peer h-[48px] w-[350px] rounded-lg border-2 border-zinc-700 bg-zinc-900 py-2 pl-12 pr-28 text-lg font-medium outline-none transition-all valid:w-[370px]"
+          className="peer h-[48px] w-[260px] lg:w-[350px] rounded-lg border-2 border-zinc-700 bg-zinc-900 py-2 pl-12 pr-28 text-lg font-medium outline-none transition-all valid:w-[370px]"
           {...props}
         />
         <div className="absolute left-3 top-1/2 -translate-y-1/2">

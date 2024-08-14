@@ -25,7 +25,7 @@ const HeaderNav = ({
       <nav className="flex justify-between">
         <div className="flex items-center gap-4">
           <a href="/" className="px-4">
-            <Image src="/images/logo.svg" height={22} width={104} alt="logo" />
+            <Image src="/images/logo.svg" height={0} width={0} alt="logo" className="w-[104px] h-[22px]" />
           </a>
           <div className="flex items-center gap-4">
             <button className="flex items-center justify-between gap-4">
@@ -42,7 +42,7 @@ const HeaderNav = ({
             </button>
             <div className="h-[35px] w-[2px] bg-white/50"></div>
             <button
-              className={`px-4 py-2 hover:rounded-md ${isScroll.top ? "hover:bg-zinc-800" : "hover:bg-zinc-900"}`}
+              className={`px-4 py-2 hidden xs:block hover:rounded-md ${isScroll.top ? "hover:bg-zinc-800" : "hover:bg-zinc-900"}`}
             >
               SELL NFTs
             </button>

@@ -13,7 +13,7 @@ const SortFilter = () => {
     setIsMenuOpen(false);
   };
   return (
-    <div className="relative">
+    <div className="relative hidden lg:block">
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="flex h-[48px] min-w-[180px] items-center justify-between gap-3 rounded-lg border-2 border-zinc-700 bg-zinc-900 py-2 pl-3 pr-2 text-left  hover:border-zinc-400 hover:bg-zinc-800"
