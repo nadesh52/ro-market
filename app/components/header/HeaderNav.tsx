@@ -6,6 +6,7 @@ import {
   WalletIcon
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { BASE_URL } from "@/constants";
 
 interface HeaderNavProps {
   isScroll: { top: boolean };
@@ -25,12 +26,12 @@ const HeaderNav = ({
       <nav className="flex justify-between">
         <div className="flex items-center gap-4">
           <a href="/" className="px-4">
-            <Image src="/images/logo.svg" height={0} width={0} alt="logo" className="w-[104px] h-[22px]" />
+            <Image src={`${BASE_URL}/images/logo.svg`} height={0} width={0} alt="logo" className="w-[104px] h-[22px]" />
           </a>
           <div className="flex items-center gap-4">
             <button className="flex items-center justify-between gap-4">
               <Image
-                src="/images/game-icon.webp"
+                src={`${BASE_URL}/images/game-icon.webp`}
                 height={20}
                 width={20}
                 alt="game-select"

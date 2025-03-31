@@ -1,10 +1,10 @@
 "use client";
-
 import Image from "next/image";
 import React, { useState } from "react";
 import SwitchInput from "./SwitchInput";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 import { HeartIcon } from "@heroicons/react/24/outline";
+import { BASE_URL } from "@/constants";
 
 const CategoryList = () => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
@@ -47,7 +47,7 @@ const CategoryList = () => {
         <div className="active flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
           <div>
             <Image
-              src="/images/icons/category/etc-icon.svg"
+              src={`${BASE_URL}/images/icons/category/etc-icon.svg`}
               height={24}
               width={24}
               alt="category"
@@ -62,7 +62,7 @@ const CategoryList = () => {
         <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
           <div>
             <Image
-              src="/images/icons/category/headgear-icon.svg"
+              src={`${BASE_URL}/images/icons/category/headgear-icon.svg`}
               height={24}
               width={24}
               alt="category"
@@ -77,7 +77,7 @@ const CategoryList = () => {
         <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
           <div>
             <Image
-              src="/images/icons/category/weapon-icon.svg"
+              src={`${BASE_URL}/images/icons/category/weapon-icon.svg`}
               height={24}
               width={24}
               alt="category"
@@ -92,7 +92,7 @@ const CategoryList = () => {
         <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
           <div>
             <Image
-              src="/images/icons/category/armor-icon.svg"
+              src={`${BASE_URL}/images/icons/category/armor-icon.svg`}
               height={24}
               width={24}
               alt="category"
@@ -107,7 +107,7 @@ const CategoryList = () => {
         <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
           <div>
             <Image
-              src="/images/icons/category/card-icon.svg"
+              src={`${BASE_URL}/images/icons/category/card-icon.svg`}
               height={24}
               width={24}
               alt="category"
@@ -122,7 +122,7 @@ const CategoryList = () => {
         <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
           <div>
             <Image
-              src="/images/icons/category/shadowgear-icon.svg"
+              src={`${BASE_URL}/images/icons/category/shadowgear-icon.svg`}
               height={24}
               width={24}
               alt="category"
@@ -137,7 +137,7 @@ const CategoryList = () => {
         <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
           <div>
             <Image
-              src="/images/icons/category/costume-icon.svg"
+              src={`${BASE_URL}/images/icons/category/costume-icon.svg`}
               height={24}
               width={24}
               alt="category"
@@ -159,7 +159,7 @@ const CategoryList = () => {
         <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
           <div>
             <Image
-              src="/images/icons/category/land-icon.svg"
+              src={`${BASE_URL}/images/icons/category/land-icon.svg`}
               height={24}
               width={24}
               alt="category"
@@ -174,7 +174,7 @@ const CategoryList = () => {
         <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
           <div>
             <Image
-              src="/images/icons/category/usable-icon2.svg"
+              src={`${BASE_URL}/images/icons/category/usable-icon2.svg`}
               height={24}
               width={24}
               alt="category"
@@ -189,7 +189,7 @@ const CategoryList = () => {
         <div className="inactive flex w-full items-center gap-3 rounded-xl p-3 hover:opacity-100">
           <div>
             <Image
-              src="/images/icons/category/usable-icon.svg"
+              src={`${BASE_URL}/images/icons/category/usable-icon.svg`}
               height={24}
               width={24}
               alt="category"

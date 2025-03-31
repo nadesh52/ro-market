@@ -1,6 +1,7 @@
 import React, { RefObject } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { BASE_URL } from "@/constants";
 
 interface MenuModalProps {
   isOpenMenu: boolean;
@@ -28,7 +29,7 @@ const MenuModal = ({ isOpenMenu, setIsOpenMenu, menuRef }: MenuModalProps) => {
             <li className="flex gap-4 items-center hover:bg-zinc-700 cursor-pointer px-4 py-2">
                 <div>
                   <Image
-                    src="/images/icons/menu/marketplace-icon.svg"
+                    src={`${BASE_URL}/images/icons/menu/marketplace-icon.svg`}
                     height={55}
                     width={55}
                     alt="menu-icon"

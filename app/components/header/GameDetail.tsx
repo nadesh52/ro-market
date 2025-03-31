@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { BASE_URL } from "@/constants";
 
 const GameDetail = () => {
   return (
@@ -10,7 +11,7 @@ const GameDetail = () => {
       </p>
       <div className="flex gap-4 text-lg">
         Items 5757 · Created Aug 2023 · Tax fee 10% · Chain
-        <Image src="/images/maxi.svg" height={22} width={22} alt="maxi-icon" />
+        <Image src={`${BASE_URL}/images/maxi.svg`} height={22} width={22} alt="maxi-icon" />
         <p>Maxi Network</p>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { BASE_URL } from "@/constants";
 import {
   DocumentMagnifyingGlassIcon,
   HeartIcon,
@@ -19,7 +20,7 @@ const Card = () => {
               <div className="flex items-center justify-center overflow-hidden">
                 <div>
                   <Image
-                    src="/images/items/1822.webp"
+                    src={`${BASE_URL}/images/items/1822.webp`}
                     height={140}
                     width={140}
                     alt="item-card"
@@ -38,7 +39,7 @@ const Card = () => {
                   </div>
                   <div>
                     <Image
-                      src="/images/icons/enchant.webp"
+                      src={`${BASE_URL}/images/icons/enchant.webp`}
                       width={18}
                       height={18}
                       alt="enchant"
@@ -48,7 +49,7 @@ const Card = () => {
                 <div className="flex h-[35px] items-center gap-3 rounded bg-zinc-900 px-2">
                   <div>
                     <Image
-                      src="/images/icons/items/1822.webp"
+                      src={`${BASE_URL}/images/icons/items/1822.webp`}
                       width={17}
                       height={17}
                       alt="item-icon"
@@ -126,7 +127,7 @@ const Card = () => {
           <div className="flex items-center gap-2">
             <div>
               <Image
-                src="/images/game-icon.webp"
+                src={`${BASE_URL}/images/game-icon.webp`}
                 height={16}
                 width={16}
                 alt="banner"
@@ -144,7 +145,7 @@ const Card = () => {
           <div className="flex cursor-pointer items-center gap-1 rounded-md bg-zinc-800 p-1">
             <div>
               <Image
-                src="/images/icons/nft-icon.svg"
+                src={`${BASE_URL}/images/icons/nft-icon.svg`}
                 width={16}
                 height={16}
                 alt="nft-icon"
@@ -162,7 +163,7 @@ const Card = () => {
         <div className="flex items-center gap-1 p-3">
           <div>
             <Image
-              src="/images/icons/ion.svg"
+              src={`${BASE_URL}/images/icons/ion.svg`}
               height={18}
               width={18}
               alt="ion"

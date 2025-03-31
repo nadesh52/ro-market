@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import ItemTable from "./components/ItemTable";
 import HeaderMenu from "./components/header/HeaderMenu";

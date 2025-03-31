@@ -1,13 +1,18 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
-    images: {
-      remotePatterns: [
-        {
-          protocol: "https",
-          hostname: "**",
-        },
-      ],
-    },
-  };
-  
-  export default nextConfig;
+  output: isProd ? "export" : "standalone",
+  basePath: "/ro-market",
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
