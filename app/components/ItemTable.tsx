@@ -10,7 +10,7 @@ import Card from "./Card";
 import SearchInput from "./Searchnput";
 import SortFilter from "./SortFilter";
 import ServerSelection from "./ServerSelection";
-import CategoryList from "./Categorylist";
+import CategoryList from "./CategoryList";
 
 const ItemTable = () => {
   const [isScroll, setIsScroll] = useState<boolean>(false);
@@ -78,7 +78,7 @@ const ItemTable = () => {
               <div className="flex w-full items-center justify-center gap-8 lg:w-[calc(100%-240px)]">
                 <div className="hidden lg:block">1 - 50 of 6356</div>
 
-                <ul className="flex gap-4">
+                <ul className="flex md:gap-4 gap-2">
                   <li>
                     <a href="">
                       <div className="flex items-center gap-2 rounded bg-zinc-800 px-4 py-1 text-lg text-zinc-300">
