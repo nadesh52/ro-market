@@ -14,19 +14,18 @@ const Card = () => {
   return (
     <div className="w-[200px] rounded-lg border border-zinc-700 bg-zinc-900">
       <div className="h-[220px] bg-transparent">
-        <div className="flip-card group h-full w-full p-3 perspective-1000">
-          <div className="flip-card-inner relative h-full w-full rounded text-center transition-all duration-300 preserve-3d group-hover:rotate-y-180">
-            <div className="flip-card-front absolute flex h-full w-full flex-col items-center rounded bg-white text-black [backface-visibility:hidden]">
+        <div className="group h-full w-full p-3 perspective-1000">
+          <div className="relative h-full w-full rounded text-center transition-all duration-300 preserve-3d group-hover:rotate-y-180">
+            {/* font */}
+            <div className="absolute flex h-full w-full flex-col items-center rounded bg-white [backface-visibility:hidden]">
               <div className="flex items-center justify-center overflow-hidden">
-                <div>
-                  <Image
-                    src={`${BASE_URL}/images/items/1822.webp`}
-                    height={140}
-                    width={140}
-                    alt="item-card"
-                    className="bg-coverr h-[140px] w-auto bg-center"
-                  />
-                </div>
+                <Image
+                  src={`${BASE_URL}/images/items/1822.webp`}
+                  height={140}
+                  width={140}
+                  alt="item-card"
+                  className="bg-coverr h-[140px] w-auto bg-center"
+                />
               </div>
 
               <div className="flex w-full flex-col gap-1 rounded-b bg-slate-300 px-2 py-1">
@@ -60,7 +59,8 @@ const Card = () => {
               </div>
             </div>
 
-            <div className="flip-card-back absolute z-[2] flex h-full w-full items-center rounded-md bg-zinc-800 rotate-y-180 [backface-visibility:hidden]">
+            {/* back */}
+            <div className="absolute z-[2] flex h-full w-full items-center rounded-md bg-zinc-800 rotate-y-180 [backface-visibility:hidden]">
               <div className="h-full w-full">
                 <div className="flex w-full items-center justify-between p-2">
                   <div>Detail</div>
@@ -156,7 +156,7 @@ const Card = () => {
         </div>
       </div>
 
-      <div className="group/buy flex cursor-pointer justify-end relative">
+      <div className="group/buy relative flex cursor-pointer justify-end">
         <div className="absolute hidden w-full items-center justify-center rounded-b-lg bg-green-400 p-3 text-lg font-medium group-hover/buy:flex">
           Buy Now
         </div>

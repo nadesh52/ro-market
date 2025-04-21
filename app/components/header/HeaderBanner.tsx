@@ -8,7 +8,7 @@ interface HeaderBannerProps {
 
 const HeaderBanner: React.FC<HeaderBannerProps> = ({ isScroll }) => {
   return (
-    <div className='h-[340px] bg-[url("/images/rol-banner.png")] bg-cover bg-custom-pos bg-no-repeat'>
+    <div className='h-[340px] bg-rol-banner bg-cover bg-custom-pos bg-no-repeat'>
       <div
         className={`absolute z-20 ml-8 pt-[180px] ${isScroll.mid ? "hidden" : ""}`}
       >

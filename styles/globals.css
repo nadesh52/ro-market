@@ -26,35 +26,40 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-@layer components {
+@layer utilities {
+  .preserve-3d {
+    transform-style: preserve-3d
+  }
+  .perspective-1000 {
+    perspective: 1000px
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg)
+  }
+}
 
+@layer components {
   .line {
     @apply bg-line-pos flex-shrink-0 bg-line-icon bg-no-repeat h-[48px] w-[37px]
   }
   .line-last {
     @apply bg-line-pos flex-shrink-0 bg-line-last-icon bg-no-repeat h-[48px] w-[37px]
   }
-
   .active {
     @apply opacity-100 bg-zinc-800 shadow-[inset_0px_1px_1px_rgba(0,0,0,1)] shadow-zinc-600;
   }
-
   .inactive {
     @apply opacity-60
   }
-
   .card-slot {
     @apply w-[18.35px] h-[12.5px]
   }
-
   .slotted {
     @apply bg-slotted bg-no-repeat bg-contain
   }
-
   .empty {
     @apply bg-empty bg-no-repeat bg-contain
   }
-
   .selected {
     @apply bg-zinc-800
   }
